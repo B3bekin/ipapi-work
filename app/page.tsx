@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 
@@ -8,7 +9,7 @@ interface IpApiData {
   region: string;
   country: string;
   postal: string;
-  eu: string;
+  eu: boolean;
   latitude: number;
   timezone: string;
   country_calling_code: string;
@@ -28,6 +29,7 @@ function Home() {
       .then((data: IpApiData) => {
         setData(data);
         setLoading(false);
+        console.log(data);
       })
       .catch((error) => console.error(error));
   }, []);
@@ -67,7 +69,7 @@ function Home() {
               Postal Code: {data.postal}
             </p>
             <p className="text-lg font-medium hover:text-xl hover:font-semibold">
-              European Union: {data.eu}
+            European Union: {data.eu ? "You are in Europe " : "You are in Europe"}
             </p>
             <p className="text-lg font-medium hover:text-xl hover:font-semibold">
               Latitude: {data.latitude}
@@ -90,9 +92,7 @@ function Home() {
             <p className="text-lg font-medium hover:text-xl hover:font-semibold">
               Org: {data.org}
             </p>
-            {!loading && (
-              <h1 className="text-3xl font-bold ">I know where you live 😎</h1>
-            )}
+            <h1 className="text-3xl font-bold ">I know where you live 😎</h1>
           </div>
         )}
       </div>
