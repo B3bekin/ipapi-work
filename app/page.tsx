@@ -20,7 +20,7 @@ interface IpApiData {
 
 function Home() {
   const [loading, setLoading] = useState(true);
-  const [data, setData] = useState<IpApiData | null>(null);
+  const [data, setData] = useState<IpApiData>();
 
   useEffect(() => {
     fetch("https://ipapi.co/json/")
@@ -35,7 +35,7 @@ function Home() {
   return (
     <div className="flex justify-center">
       <div className="grid grid-cols-2 gap-4 mx-auto py-6">
-        <div>
+        <div className="Dave">
           <h1 className="text-3xl font-bold ">
             You should now wait, just a little bit
           </h1>
@@ -43,14 +43,14 @@ function Home() {
           <div className="flex items-center justify-center">
             {loading && (
               <div className="flex flex-col h-1/2 justify-center items-center">
-                <div className="animate-spin rounded-full h-32 w-32 border-t-8 border-b-8 border-black"></div>
+                <div className=" animate-spin rounded-full h-16 w-5 border-t-8 border-b-8 border-black"></div>
               </div>
             )}
           </div>
         </div>
 
         {data && (
-          <div className="bg-yellow-300 p-6 rounded-xl">
+          <div className="bg-yellow-300 p-6 rounded-xl hover:cursor-pointer">
             <p className="text-lg font-medium hover:text-xl hover:font-semibold">
               IP: {data.ip}
             </p>
