@@ -37,15 +37,16 @@ function Home() {
   return (
     <div className="flex justify-center">
       <div className="grid grid-cols-2 gap-4 mx-auto py-6">
-        <div className="Dave">
+        <div className="">
           <h1 className="text-3xl font-bold ">
-            You should now wait, just a little bit
+            The info is coming from IPA API
           </h1>
 
           <div className="flex items-center justify-center">
             {loading && (
               <div className="flex flex-col h-1/2 justify-center items-center">
                 <div className=" animate-spin rounded-full h-16 w-5 border-t-8 border-b-8 border-black"></div>
+                <p>The table will be here shortly</p>
               </div>
             )}
           </div>
